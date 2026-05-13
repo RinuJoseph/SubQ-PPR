@@ -1,4 +1,5 @@
-# SubQ-PPR — Sub-Question-Aware Personalized PageRank for Multi-Hop Retrieval
+# SubQ-PPR — Query-Conditioned Graph Retrieval for Multi-Hop Question
+Answering
 
 A compact reimplementation of HippoRAG-2 that does Personalised PageRank on a
 **per-query subgraph** seeded by LLM-generated sub-questions, instead of the
