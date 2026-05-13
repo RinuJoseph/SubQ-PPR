@@ -13,24 +13,24 @@ Comparison of SubQ-PPR's reproduced numbers against the HippoRAG-2 paper.
 |  | **SubQ-PPR (ours)** | 0.8515 |
 | **HotpotQA** | HippoRAG-2 (paper) | 0.9280 |
 |  | **SubQ-PPR (ours)** | **0.9620** |
-| **NQ_rear** | HippoRAG-2 (paper) | not published |
+| **NQ_rear** | HippoRAG-2 (paper) | 0.764 |
 |  | **SubQ-PPR (ours)** | 0.7353 |
 
 
 
 ## QA (F1 / EM, top-5 passages)
 
-| Dataset | Method | F1 | EM |
+| Dataset | Method | F1 | 
 |---|---|---|---|
-| **MuSiQue** | HippoRAG-2 (paper) | 0.4809 | 0.3430 |
-|  | **SubQ-PPR (ours)** | _to re-run after gold-format fix_ | _to re-run_ |
-| **2WikiMultiHopQA** | HippoRAG-2 (paper) | 0.7060 | 0.6170 |
-|  | **SubQ-PPR (ours)** | **0.6572** | **0.5790** |
+| **MuSiQue** | HippoRAG-2 (paper) | 0.4809 |
+|  | **SubQ-PPR (ours)** | 0.477| 
+| **2WikiMultiHopQA** | HippoRAG-2 (paper) | 0.7060 |
+|  | **SubQ-PPR (ours)** | **0.657** |
 |  | Δ | −4.88 pt | −3.80 pt |
-| **HotpotQA** | HippoRAG-2 (paper) | 0.7130 | 0.5640 |
-|  | **SubQ-PPR (ours)** | _to run_ | _to run_ |
+| **HotpotQA** | HippoRAG-2 (paper) | 0.7130 | 
+|  | **SubQ-PPR (ours)** | 0.747| 
 | **NQ_rear** | HippoRAG-2 (paper) | not published | not published |
-|  | **SubQ-PPR (ours)** | 0.5028 | 0.3390 |
+|  | **SubQ-PPR (ours)** | 0.502 | 
 
 
 
