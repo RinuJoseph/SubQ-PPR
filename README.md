@@ -1,25 +1,4 @@
-# SubQ-PPR — Query-Conditioned Graph Retrieval for Multi-Hop Question
-Answering
-
-A compact reimplementation of HippoRAG-2 that does Personalised PageRank on a
-**per-query subgraph** seeded by LLM-generated sub-questions, instead of the
-full-corpus graph the original paper uses.
-
-The change buys two things:
-
-1. **Cost** — every stage runs on `gpt-4o-mini`. Index-time NER + OpenIE,
-   query-time fact filter, QA reading — all on the cheapest model. No
-   Llama-3.3-70B + DSPy.
-2. **Match-or-beat HippoRAG-2 on retrieval recall**, with the full pipeline
-   costing ~$0.50 per 1 000 MuSiQue queries.
-
-The repo reproduces HippoRAG-2's published numbers across the multi-hop
-benchmarks they evaluate on (MuSiQue, HotpotQA, 2WikiMultiHopQA, HoVer,
-PopQA), then re-runs each with the SubQ-PPR pipeline on top.
-
-See [`results.md`](results.md) for the side-by-side numbers.
-
----
+# SubQ-PPR — Query-Conditioned Graph Retrieval for Multi-Hop Question Answering
 
 ## The idea
 
