@@ -1,0 +1,68 @@
+# SQ-PPR default configuration.
+# Generic over datasets. Pass `--dataset NAME` (or set `dataset.name` below)
+# to switch. All cache + result paths are derived from `<repo>/cache/<name>/`
+# and `<repo>/results/<name>/` automatically.
+
+# ---- Dataset ----
+# Supported: musique, hotpotqa, 2wikimultihopqa, hover, popqa, nq_rear
+dataset:
+  name:                musique
+  root:                /workspace/storage/GraphRAG/HippoRAG/SQ-PPR-Final/dataset
+
+# ---- Paths (derived from dataset.name; override here if needed) ----
+# `__DATASET__` is replaced by the active dataset name when the config is
+# loaded (see sqppr/utils.load_config).
+paths:
+  cache_root:          /workspace/storage/GraphRAG/HippoRAG/SQ-PPR-Final/cache/__DATASET__
+  output_root:         /workspace/storage/GraphRAG/HippoRAG/SQ-PPR-Final/results/__DATASET__
+
+# ---- Models ----
+embedder:
+  model_name:          nvidia/NV-Embed-v2
+  passage_instr:       query_to_passage
+  fact_instr:          query_to_fact
+
+llm:
+  ner_model:           gpt-4o-mini
+  triple_model:        gpt-4o-mini
+  filter_model:        gpt-4o-mini
+  qa_model:            gpt-4o-mini
+  decomposition_model: gpt-4o-mini    # cached per qid; reused across all
+                                       # downstream config changes (filter K,
+                                       # cap, scoring, etc.)
+
+# ---- Pool ----
+pool:
+  mq_top:              50
+  sq_top:              10
+
+# ---- Graph ----
+graph:
+  synonym_threshold:   0.80           # NV-Embed cosine on hr2-normalized entity
+                                       # strings. ≥ 0.80 → synonym edge.
+
+# ---- LLM fact filter (WINNER: top-30 in / no cap, open output) ----
+fact_filter:
+  input_top_k:         30             # candidates by cosine sent to the LLM
+  output_cap_k:        null           # no hard cap on kept facts (open-ended)
+  fallback_top_k:      5              # if LLM returns 0, use top-K by cosine
+  temperature:         0.0
+  max_completion_tokens: 120
+
+# ---- PPR ----
+ppr:
+  damping:                  0.5
+  passage_node_weight:      0.05
+  scoring_rule:             own_only
+
+# ---- QA ----
+qa:
+  top_k_passages:           5
+  temperature:              0.0
+  max_completion_tokens:    400
+
+# ---- Concurrency ----
+workers:
+  decomposition:            16
+  llm_filter:               32
+  qa:                       32

@@ -1,0 +1,33 @@
+# Build / artifact directories — excluded by design (each ~GB-scale)
+cache/
+results/
+
+# Tests — excluded per repo policy
+tests/
+
+# Datasets — not redistributed here; reproduce by downloading the
+# original MuSiQue/HotpotQA/2WikiMultiHopQA/HoVer/PopQA/NQ_rear corpora
+# and dropping them under `dataset/` per the README. Keep an empty
+# placeholder so the directory survives a clean checkout.
+dataset/
+!dataset/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+
+# Environment / secrets
+.env
+
+# Editor / OS junk
+.DS_Store
+.vscode/
+.idea/
+
+# Misc temp
+*.log
+*.tmp
