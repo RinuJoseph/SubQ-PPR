@@ -21,7 +21,7 @@ Comparison of SubQ-PPR's reproduced numbers against the HippoRAG-2 paper.
 ## QA (F1 / EM, top-5 passages)
 
 | Dataset | Method | F1 | 
-|---|---|---|---|
+|---|---|---|
 | **MuSiQue** | HippoRAG-2 (paper) | 0.4809 |
 |  | **SubQ-PPR (ours)** | 0.477| 
 | **2WikiMultiHopQA** | HippoRAG-2 (paper) | 0.7060 |
