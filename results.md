@@ -18,19 +18,22 @@ Comparison of SubQ-PPR's reproduced numbers against the HippoRAG-2 paper.
 
 
 
-## QA (F1 / EM, top-5 passages)
+## QA Results (F1, top-5 passages)
 
-| Dataset | Method | F1 | 
-|---|---|---|
+| Dataset | Method | F1 |
+|---|---|---:|
 | **MuSiQue** | HippoRAG-2 (paper) | 0.4809 |
-|  | **SubQ-PPR (ours)** | 0.477| 
+|  | **SubQ-PPR (ours)** | 0.4770 |
+|  | Δ | −0.39 pt |
 | **2WikiMultiHopQA** | HippoRAG-2 (paper) | 0.7060 |
-|  | **SubQ-PPR (ours)** | **0.657** |
-|  | Δ | −4.88 pt | −3.80 pt |
-| **HotpotQA** | HippoRAG-2 (paper) | 0.7130 | 
-|  | **SubQ-PPR (ours)** | 0.747| 
-| **NQ_rear** | HippoRAG-2 (paper) | not published | not published |
-|  | **SubQ-PPR (ours)** | 0.502 | 
+|  | **SubQ-PPR (ours)** | 0.6570 |
+|  | Δ | −4.90 pt |
+| **HotpotQA** | HippoRAG-2 (paper) | 0.7130 |
+|  | **SubQ-PPR (ours)** | **0.7470** |
+|  | Δ | **+3.40 pt** |
+| **NQ_rear** | HippoRAG-2 (paper) | 0.5020 |
+|  | **SubQ-PPR (ours)** | 0.5020 |
+|  | Δ | 0.00 pt |
 
 
 
