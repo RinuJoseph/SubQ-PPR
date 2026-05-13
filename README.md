@@ -75,15 +75,14 @@ SubQ-PPR/
 ├── requirements.txt
 ├── configs/
 │   ├── default.yaml      ← all hyperparameters; one file per dataset
-│   └── mq100.yaml        ← alt config: mq_top=100 (analysis)
-├── dataset/              ← drop the HippoRAG-2 dataset JSONs here
+├── dataset/              ← Download and add the HippoRAG-2 dataset JSONs here
 │                            (musique.json + musique_corpus.json, etc.)
 ├── prompts/              ← LLM prompts, one file each
-│   ├── ner.py                  (verbatim from HippoRAG-2)
-│   ├── triple_extraction.py    (verbatim from HippoRAG-2)
-│   ├── rag_qa_musique.py       (verbatim from HippoRAG-2)
-│   ├── fact_filter.py          (ours)
-│   └── query_decomposition.py  (decompose_v1 prompt)
+│   ├── ner.py                  
+│   ├── triple_extraction.py   
+│   ├── rag_qa_musique.py       
+│   ├── fact_filter.py          
+│   └── query_decomposition.py  
 ├── sqppr/                ← library
 │   ├── datasets.py       ← per-dataset adapters (6 supported)
 │   ├── data.py           ← uniform loader on top of adapters
@@ -181,18 +180,7 @@ python scripts/run_all_datasets.py --skip-qa             # retrieval only
 python scripts/run_all_datasets.py --datasets musique 2wikimultihopqa
 ```
 
-### Cost expectations (first-time cold runs)
 
-| Stage | LLM calls | Cost (gpt-4o-mini) |
-|---|---|---|
-| Step 0 — decompositions (1 000 queries) | ~1 000 | ~$0.10 |
-| Step 1 — passage embeddings | 0 (NV-Embed only) | $0 (GPU) |
-| Steps 2-3 — NER + triples (pool chunks, ~10K) | ~10 000 | ~$5-8 |
-| Retrieval — LLM fact filter | ~1 000 | ~$0.50 |
-| QA | ~1 000 | ~$0.30 |
-| **Total per dataset** | **~13 000** | **~$6-9** |
-
-Re-runs with warm cache: only the retrieval + QA LLM calls fire → ~$0.80.
 
 ### Configurable knobs (in `configs/default.yaml`)
 
@@ -241,19 +229,11 @@ GPU re-encode entirely.
 
 ---
 
-## What's NOT in this repo
-
-- **Cache directories** — re-generate via `build_cache.py`.
-- **Results directories** — re-generate by running the pipeline.
-- **Tests** — internal smoke tests excluded per repo policy.
-- **Datasets** — see Setup above.
-
----
 
 ## License & attribution
 
-Several prompts and the OpenIE / NER class are imported verbatim from
+Several prompts and the OpenIE / NER class are imported  from
 [HippoRAG-2 (OSU-NLP-Group/HippoRAG)](https://github.com/OSU-NLP-Group/HippoRAG)
 and used under their license. The per-query graph construction, LLM-filter
-prompt, sub-question pool design, dataset adapters, and all pipeline glue
+prompt, sub-question pool design, dataset adapters, and all pipeline
 code are original to this repo.
