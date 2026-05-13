@@ -28,7 +28,6 @@ Comparison of SubQ-PPR's reproduced numbers against the HippoRAG-2 paper.
 |  | **SubQ-PPR (ours)** | 0.6570 |
 | **HotpotQA** | HippoRAG-2 (paper) | 0.7130 |
 |  | **SubQ-PPR (ours)** | **0.7470** |
-|  | Δ | **+3.40 pt** |
 | **NQ_rear** | HippoRAG-2 (paper) | 0.5020 |
 |  | **SubQ-PPR (ours)** | 0.5020 |
 
